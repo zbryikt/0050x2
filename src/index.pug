@@ -1,0 +1,21 @@
+doctype html
+html(lang="zh-TW")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title 0050 vs 0050正二：槓桿 ETF 的真相
+    link(rel="stylesheet" href="style.css")
+  body
+    include _hero.pug
+    .story
+      .panel-left
+        .viz-wrap
+          include _left-panel.pug
+      .panel-right
+        include _phase-a.pug
+        #postChoice(style="display:none")
+          include _phase-b.pug
+          include _phase-c.pug
+          include _phase-d.pug
+          include _phase-e.pug
+    script(src="main.js")

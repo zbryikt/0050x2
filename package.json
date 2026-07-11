@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pug src/index.pug -o dist/ && cp src/style.css dist/ && cp src/main.js dist/",
+    "deploy": "npm run build && ./deploy dist",
+    "dev": "pug src/index.pug -o dist/ -w"
   },
   "keywords": [],
   "author": "",
@@ -11,5 +13,8 @@
   "description": "",
   "dependencies": {
     "@plotdb/guides": "github:plotdb/guides#master"
+  },
+  "devDependencies": {
+    "pug-cli": "^1.0.0-alpha6"
   }
 }

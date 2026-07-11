@@ -1,0 +1,102 @@
+#charRow.char-row
+  .char-card#youCard
+    .char-avatar.you-av 你
+    .char-name 你
+    .char-etf#youEtf 0050
+    .char-bal#youBal 100
+      small(style="font-size:.55em;font-weight:400")  萬
+    .char-pnl#youPnl(style="color:var(--muted)") ±0.00%
+  .char-vs VS
+  .char-card#huaCard
+    .char-avatar.hua-av 華
+    .char-name 小華
+    .char-etf#huaEtf 0050
+    .char-bal#huaBal 100
+      small(style="font-size:.55em;font-weight:400")  萬
+    .char-pnl#huaPnl(style="color:var(--muted)") ±0.00%
+
+#barsPanel
+  .bars-leg#barsLeg(style="display:none")
+    span
+      span.ldot(style="background:var(--blue)")
+      span.lev-name 正二
+    span
+      span.ldot(style="background:var(--green)")
+      span.base-name 0050
+  .bars-canvas-wrap
+    canvas#barsCanvas
+
+#chartPanel
+  .chart-leg
+    span
+      span.ldot(style="background:var(--blue);display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.3rem")
+      span.lev-name 正二
+    span
+      span.ldot(style="background:var(--green);display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.3rem")
+      span.base-name 0050
+  .chart-wrap
+    canvas#theChart
+  #dropEntries
+  .peak-box#peakBox(style="display:none")
+    .row
+      span.label
+        | 從高點跌幅（
+        span.lev-name 正二
+        | ）
+      span.val#levDrop(style="color:var(--red)") —
+    .row
+      span.label
+        | 從高點跌幅（
+        span.base-name 0050
+        | ）
+      span.val#baseDrop(style="color:var(--orange)") —
+    .row(style="margin-top:.3rem;padding-top:.3rem;border-top:1px solid var(--border)")
+      span.label 損失倍率
+      span.val#dropRatio(style="color:var(--text)") —
+
+#zigzagPanel
+  .zz-title 波動損耗示範（各從 100 萬出發）
+  .zz-wrap
+    canvas#zzChart
+  table.zz-table
+    thead
+      tr
+        th 輪
+        th(style="color:var(--blue)") 正二
+        th(style="color:var(--green)") 0050
+        th 差距（萬）
+    tbody#zzBody
+  #zzCounter(style="display:none;margin-top:.6rem;padding:.4rem .6rem;background:rgba(255,255,255,.04);border-radius:8px;font-size:.8rem;line-height:1.9")
+    b#zzRoundNum(style="color:var(--orange)") 第 3 輪
+    br
+    span(style="color:var(--blue)") 正二
+    b#zzLevVal(style="color:var(--red)") 94.6
+    span(style="color:var(--muted)")  萬
+    span#zzLevPct(style="color:var(--red);font-size:.72rem")
+    span(style="color:var(--muted)") 　0050
+    b#zzBaseVal(style="color:var(--green)") 100.0
+    span(style="color:var(--muted)")  萬（持平）
+
+#zigzagPanel2
+  .zz-title 緩漲震盪：0050 悄悄爬升，正二原地踏步
+  .zz-wrap
+    canvas#zzChart2
+  table.zz-table
+    thead
+      tr
+        th 輪
+        th(style="color:var(--blue)") 正二
+        th(style="color:var(--green)") 0050
+        th 差距（萬）
+    tbody#zzBody2
+  #zzCounter2(style="display:none;margin-top:.6rem;padding:.4rem .6rem;background:rgba(255,255,255,.04);border-radius:8px;font-size:.8rem;line-height:1.9")
+    b#zzRoundNum2(style="color:var(--orange)") 第 1 輪
+    br
+    span(style="color:var(--blue)") 正二
+    b#zzLevVal2(style="color:var(--muted)") 100.0
+    span(style="color:var(--muted)")  萬（持平）
+    br
+    span(style="color:var(--green)") 0050
+    b#zzBaseVal2(style="color:var(--green)") 100.8
+    span(style="color:var(--muted)")  萬
+    span#zzBasePct2(style="color:var(--green);font-size:.72rem")
