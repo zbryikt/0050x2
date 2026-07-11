@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -e
+if [[ -z "$2" ]]; then
+  branch=gh-pages
+else
+  branch=$2
+fi
+if [[ -d "$1" ]]; then
+  if [[ -d .git ]]; then
+    REV=`git describe --always`
+    rm -rf _public
+    git clone $(git remote get-url origin) --depth 1 -b $branch _public
+    cd _public
+    git rm -r *
+    cp -R ../$1/* ./
+    git add *
+    git commit -m "regen for $REV"
+    git push
+    cd ..
+    rm -rf _public
+  else
+    echo "please use deploy under a git repo."
+  fi
+else
+  echo "please specify static folder."
+fi
