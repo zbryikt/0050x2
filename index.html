@@ -69,6 +69,9 @@ canvas{display:block;width:100%!important;height:100%!important}
 #zigzagPanel{display:none;opacity:0;transition:opacity .5s}
 #zigzagPanel.on{display:block}
 #zigzagPanel.vis{opacity:1}
+#zigzagPanel2{display:none;opacity:0;transition:opacity .5s}
+#zigzagPanel2.on{display:block}
+#zigzagPanel2.vis{opacity:1}
 .zz-title{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem}
 .zz-wrap{width:100%;height:160px}
 .zz-table{width:100%;margin-top:.7rem;font-size:.74rem;border-collapse:collapse}
@@ -81,14 +84,14 @@ canvas{display:block;width:100%!important;height:100%!important}
 .scroll-section{min-height:85vh;display:flex;align-items:center;padding:3rem 2.5rem;border-top:1px solid var(--border)}
 .scroll-section:first-child{min-height:100vh;border-top:none}
 .sec{max-width:460px}
-.sec-tag{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.7rem;font-weight:600}
+.sec-tag{font-size:.82rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.7rem;font-weight:600}
 .ta{color:var(--green)}.tb{color:var(--blue)}.tc{color:var(--red)}.tn{color:var(--muted)}.td{color:var(--orange)}
-.sec h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;line-height:1.25;margin-bottom:.8rem}
-.sec p{color:var(--muted);font-size:1rem;line-height:1.85}
+.sec h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;line-height:1.25;margin-bottom:.8rem}
+.sec p{color:var(--muted);font-size:1.1rem;line-height:1.85}
 .sec p strong{color:var(--text)}
 .you-t{color:var(--blue);font-weight:600}.hua-t{color:var(--green);font-weight:600}
 .lev-t{font-weight:600}.base-t{font-weight:600}
-.callout{margin-top:1.1rem;padding:.7rem 1rem;border-radius:10px;border-left:3px solid;font-size:.9rem;line-height:1.7}
+.callout{margin-top:1.1rem;padding:.7rem 1rem;border-radius:10px;border-left:3px solid;font-size:.98rem;line-height:1.7}
 .ci{border-color:var(--blue);background:rgba(79,142,247,.08)}
 .cw{border-color:var(--orange);background:rgba(245,166,35,.07)}
 .cs{border-color:var(--green);background:rgba(61,214,140,.07)}
@@ -187,6 +190,20 @@ canvas{display:block;width:100%!important;height:100%!important}
           <b id="zzRoundNum" style="color:var(--orange)">第 3 輪</b><br>
           <span style="color:var(--blue)">正二 </span><b id="zzLevVal" style="color:var(--red)">94.6</b><span style="color:var(--muted)"> 萬</span><span id="zzLevPct" style="color:var(--red);font-size:.72rem"></span>
           <span style="color:var(--muted)">　0050 </span><b id="zzBaseVal" style="color:var(--green)">100.0</b><span style="color:var(--muted)"> 萬（持平）</span>
+        </div>
+      </div>
+
+      <div id="zigzagPanel2">
+        <div class="zz-title">緩漲震盪：0050 悄悄爬升，正二原地踏步</div>
+        <div class="zz-wrap"><canvas id="zzChart2"></canvas></div>
+        <table class="zz-table">
+          <thead><tr><th>輪</th><th style="color:var(--blue)">正二</th><th style="color:var(--green)">0050</th><th>差距（萬）</th></tr></thead>
+          <tbody id="zzBody2"></tbody>
+        </table>
+        <div id="zzCounter2" style="display:none;margin-top:.6rem;padding:.4rem .6rem;background:rgba(255,255,255,.04);border-radius:8px;font-size:.8rem;line-height:1.9">
+          <b id="zzRoundNum2" style="color:var(--orange)">第 1 輪</b><br>
+          <span style="color:var(--blue)">正二 </span><b id="zzLevVal2" style="color:var(--muted)">100.0</b><span style="color:var(--muted)"> 萬（持平）</span><br>
+          <span style="color:var(--green)">0050 </span><b id="zzBaseVal2" style="color:var(--green)">100.8</b><span style="color:var(--muted)"> 萬</span><span id="zzBasePct2" style="color:var(--green);font-size:.72rem"></span>
         </div>
       </div>
 
@@ -405,6 +422,31 @@ canvas{display:block;width:100%!important;height:100%!important}
       </div>
     </section>
 
+    <section class="scroll-section" data-step="18">
+      <div class="sec">
+        <div class="sec-tag td">更諷刺的情境</div>
+        <h2>那如果市場其實是往上走呢？</h2>
+        <p>前面是「完美震盪」：0050 原地，正 2 虧損。<br><br>
+        現在換個條件：每次漲 <strong>10%</strong>、但只跌 <strong>8.33%</strong>，讓 0050 每輪稍微往上爬。<br><br>
+        第 1 輪結束：<br>
+        <strong>0050</strong>：100 → 110 → <strong>100.83 萬</strong>（+0.83%）<br>
+        <strong>正 2</strong>：100 → 120 → <strong>100 萬</strong>（±0%，精準持平）</p>
+        <div class="callout cw">0050 開始悄悄往上爬——而正 2 的波動損耗恰好與漲幅抵消，永遠停在原點。</div>
+      </div>
+    </section>
+
+    <section class="scroll-section" data-step="19">
+      <div class="sec">
+        <div class="sec-tag td">緩漲震盪 · 50 輪</div>
+        <h2>0050 漲了 51%，正 2 還是 100 萬</h2>
+        <p>50 輪同樣的震盪過後：<br><br>
+        <strong style="color:var(--green)">0050</strong>：靠著每輪 0.83% 複利，悄悄漲至約 <strong style="color:var(--green)">151 萬</strong>（+51%）<br>
+        <strong style="color:var(--blue)">正 2</strong>：波動損耗完全抵消獲利，仍然是 <strong style="color:var(--muted)">100 萬</strong>（±0%）<br><br>
+        方向對了，理論上正 2 應該漲更多——但槓桿的每日重設，把所有獲利都侵蝕掉了。</p>
+        <div class="callout cd">📉 波動損耗不只吃本金，也能吃漲幅。在震盪上漲的市場裡，正 2 的損耗恰好等於獲利，讓你徒勞無功。</div>
+      </div>
+    </section>
+
     </div><!-- end postChoice -->
 
   </div>
@@ -435,6 +477,16 @@ for(let i=0;i<ZZ_MAX_ROUNDS;i++){
   zzLev.push(+(zzLev[zzLev.length-1]*(9/11)).toFixed(6));
 }
 
+// Scenario 2: 0050 gently climbs (+10%/-8.33%); 正二 oscillates flat (+20%/-16.67%)
+// zzLev3[2n]=100 always; zzBase3[2n]=100*(121/120)^n → ~151 after 50 rounds
+const zzBase3=[100], zzLev3=[100];
+for(let i=0;i<ZZ_MAX_ROUNDS;i++){
+  zzBase3.push(+(zzBase3[zzBase3.length-1]*1.1).toFixed(6));
+  zzBase3.push(+(zzBase3[zzBase3.length-1]*(11/12)).toFixed(6));
+  zzLev3.push(+(zzLev3[zzLev3.length-1]*1.2).toFixed(6));
+  zzLev3.push(+(zzLev3[zzLev3.length-1]*(5/6)).toFixed(6));
+}
+
 // ── STATE ──
 const $=id=>document.getElementById(id);
 const fmtP=v=>(v>=0?'+':'')+v.toFixed(2)+'%';
@@ -442,6 +494,7 @@ const pClr=v=>v>0?'var(--green)':v<0?'var(--red)':'var(--muted)';
 
 let cur=-1, userChoice=null; // 'lev' or 'base'
 let zzAnimTimer=null, zzAnimRound=3;
+let zzAnim2Timer=null, zzAnim2Round=1;
 
 // Who has lev/base based on choice
 function levBals(){ return userChoice==='base'? balBase : balLev; }
@@ -463,6 +516,7 @@ function updateViz(step){
   if(step===cur) return;
   cur=step;
   stopZzAnim();
+  stopZzAnim2();
 
   updateChars(step);
 
@@ -475,7 +529,7 @@ function updateViz(step){
     updateDrops(step);
     $('peakBox').style.display = step>=12 ? 'block' : 'none';
     if(step>=12) fillPeakBox();
-  } else {
+  } else if(step<=17){
     showPanel('zigzag');
     if(step >= 17){
       drawZzChart(3);
@@ -490,12 +544,25 @@ function updateViz(step){
       $('zzBody').style.display='';
       $('zzCounter').style.display='none';
     }
+  } else {
+    showPanel('zigzag2');
+    if(step >= 19){
+      drawZzChart(1,'zzChart2',zzLev3,zzBase3);
+      updateZzTable2(1);
+      $('zzBody2').style.display='';
+      $('zzCounter2').style.display='none';
+      startZzAnim2();
+    } else {
+      drawZzChart(1,'zzChart2',zzLev3,zzBase3);
+      updateZzTable2(1);
+      $('zzBody2').style.display='';
+      $('zzCounter2').style.display='none';
+    }
   }
 }
 
 function showPanel(which){
-  // bars
-  const bp=$('barsPanel'), cp=$('chartPanel'), zp=$('zigzagPanel');
+  const bp=$('barsPanel'), cp=$('chartPanel'), zp=$('zigzagPanel'), zp2=$('zigzagPanel2');
   bp.style.display = which==='bars' ? 'block' : 'none';
   if(which==='chart'){
     cp.classList.add('on');
@@ -504,13 +571,15 @@ function showPanel(which){
     cp.classList.remove('vis');
     setTimeout(()=>cp.classList.remove('on'),400);
   }
-  if(which==='zigzag'){
-    zp.classList.add('on');
-    requestAnimationFrame(()=>requestAnimationFrame(()=>zp.classList.add('vis')));
-  } else {
-    zp.classList.remove('vis');
-    setTimeout(()=>zp.classList.remove('on'),400);
-  }
+  [['zigzag',zp],['zigzag2',zp2]].forEach(([name,panel])=>{
+    if(which===name){
+      panel.classList.add('on');
+      requestAnimationFrame(()=>requestAnimationFrame(()=>panel.classList.add('vis')));
+    } else {
+      panel.classList.remove('vis');
+      setTimeout(()=>panel.classList.remove('on'),400);
+    }
+  });
 }
 
 function updateChars(step){
@@ -687,8 +756,9 @@ function fillPeakBox(){
 }
 
 // ── ZIGZAG ──
-function drawZzChart(rounds){
-  const canvas=$('zzChart');
+function drawZzChart(rounds, canvasId, levData, baseData){
+  canvasId=canvasId||'zzChart'; levData=levData||zzLev; baseData=baseData||zzBase;
+  const canvas=$(canvasId);
   if(!canvas||!canvas.offsetWidth) return;
   const dpr=window.devicePixelRatio||1;
   const W=canvas.offsetWidth,H=canvas.offsetHeight;
@@ -696,7 +766,7 @@ function drawZzChart(rounds){
   const ctx=canvas.getContext('2d');
   ctx.scale(dpr,dpr);
   const pts=rounds*2+1;
-  const ld=zzLev.slice(0,pts), bd=zzBase.slice(0,pts);
+  const ld=levData.slice(0,pts), bd=baseData.slice(0,pts);
   const all=[...ld,...bd];
   const rawMin=Math.min(...all), rawMax=Math.max(...all);
   const pad=(rawMax-rawMin)*0.08+2;
@@ -785,6 +855,52 @@ function startZzAnim(){
   zzAnimTimer=setTimeout(tick,700);
 }
 
+// ── ZIGZAG SCENARIO 2 ──
+function updateZzTable2(rounds){
+  const body=$('zzBody2'); body.innerHTML='';
+  for(let i=1;i<=rounds;i++){
+    const lv=zzLev3[i*2], bv=zzBase3[i*2];
+    const bp=((bv/100)-1)*100;
+    const gap=(bv-lv).toFixed(2);
+    const tr=document.createElement('tr'); tr.className='zz-row';
+    tr.innerHTML=`<td>第${i}輪後</td>
+      <td style="color:var(--muted);font-weight:700">${lv.toFixed(1)} 萬<br><small style="color:var(--muted)">±0%</small></td>
+      <td style="color:var(--green);font-weight:700">${bv.toFixed(2)} 萬<br><small>${fmtP(bp)}</small></td>
+      <td style="color:var(--green);font-weight:700">+${gap} 萬</td>`;
+    body.appendChild(tr);
+  }
+}
+
+function stopZzAnim2(){
+  if(zzAnim2Timer){ clearTimeout(zzAnim2Timer); zzAnim2Timer=null; }
+}
+
+function updateZzCounter2(r){
+  const lv=zzLev3[r*2], bv=zzBase3[r*2];
+  const bp=((bv/100)-1)*100;
+  $('zzRoundNum2').textContent=`第 ${r} 輪`;
+  $('zzLevVal2').textContent=lv.toFixed(1);
+  $('zzBaseVal2').textContent=bv.toFixed(2);
+  $('zzBasePct2').textContent=' ('+fmtP(bp)+')';
+}
+
+function startZzAnim2(){
+  stopZzAnim2();
+  zzAnim2Round=1;
+  $('zzBody2').style.display='none';
+  $('zzCounter2').style.display='block';
+  updateZzCounter2(1);
+  const tick=()=>{
+    zzAnim2Round=Math.min(zzAnim2Round+1, ZZ_MAX_ROUNDS);
+    drawZzChart(zzAnim2Round,'zzChart2',zzLev3,zzBase3);
+    updateZzCounter2(zzAnim2Round);
+    if(zzAnim2Round>=ZZ_MAX_ROUNDS){ zzAnim2Timer=null; return; }
+    const delay=zzAnim2Round<=6?500:zzAnim2Round<=12?300:zzAnim2Round<=25?180:100;
+    zzAnim2Timer=setTimeout(tick,delay);
+  };
+  zzAnim2Timer=setTimeout(tick,700);
+}
+
 // ── CHOICE ──
 function makeChoice(choice){
   userChoice=choice;
@@ -823,7 +939,8 @@ updateViz(0);
 window.addEventListener('resize',()=>{
   if(cur>=1&&cur<=7) drawVerticalBars(cur);
   if(cur>=8&&cur<=12) drawMainChart(cur-2);
-  if(cur>=13) drawZzChart(cur-13);
+  if(cur>=13&&cur<=17){ const r=cur===17?zzAnimRound:cur-13; drawZzChart(r); }
+  if(cur>=18){ const r=cur===19?zzAnim2Round:1; drawZzChart(r,'zzChart2',zzLev3,zzBase3); }
 });
 </script>
 </body>
