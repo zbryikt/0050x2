@@ -100,3 +100,31 @@
     b#zzBaseVal2(style="color:var(--green)") 100.8
     span(style="color:var(--muted)")  萬
     span#zzBasePct2(style="color:var(--green);font-size:.72rem")
+
+#eventPanel
+  #evPlaceholder.ev-placeholder
+    .ev-placeholder-icon 📊
+    p(style="margin-top:.4rem") 請點選卡片
+    p(style="color:rgba(255,255,255,.25);font-size:.75rem") 開始歷史回測
+  #evChartWrap(style="display:none")
+    .ev-event-name#evEventName
+    .ev-chart-canvas
+      canvas#evChart
+    .ev-status
+      .ev-day-row
+        span#evDay 第 0 天
+        .ev-leg
+          span(style="color:var(--green);font-size:.68rem") ● 0050 &nbsp;
+          span(style="color:var(--blue);font-size:.68rem") ● 正 2
+      .ev-vals-row
+        .ev-val-item
+          .ev-s-label 0050
+          .ev-s-val#evBaseVal(style="color:var(--green)") 100.0 萬
+          .ev-s-pct#evBasePct(style="color:var(--muted)") ±0.00%
+        .ev-val-item
+          .ev-s-label 正 2
+          .ev-s-val#evLevVal(style="color:var(--blue)") 100.0 萬
+          .ev-s-pct#evLevPct(style="color:var(--muted)") ±0.00%
+    #evResult
+      .ev-result-title 最終對比
+      #evResultContent
